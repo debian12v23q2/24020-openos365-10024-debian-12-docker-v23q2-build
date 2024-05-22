@@ -5,6 +5,8 @@ export CMD_PATH=$(cd `dirname $0`; pwd)
 cd $CMD_PATH
 sudo cp ./p2 /usr/bin/p2
 
+cd /
+sudo df -h
 
 cd ~/
 git clone -b ${GITHUB_REF_NAME} git@github.com:debian12v23q4/24005-openos365-10024-debian12-docker-v23q4.git build
