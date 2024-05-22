@@ -22,7 +22,11 @@ jobs:
     name: ci
     runs-on: ubuntu-latest
     steps:
-
+      - name: Check Out Repo 
+        uses: actions/checkout@v3
+      - name: run 7.disk.clean.sh
+        run: |
+          ./7.disk.clean.sh
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
         with:
