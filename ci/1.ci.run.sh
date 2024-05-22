@@ -10,7 +10,8 @@ cd build
 
 export GITHUB_REPOSITORY="openos365/24004-openos365-10024-debian12-docker-v23q3"
 
+df -h
 ./4.ci.build.run.sh
-
+df -h
 
 date
