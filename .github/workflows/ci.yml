@@ -12,9 +12,9 @@ on:
       - 'test'
       - 'prod'
       - 'prod**'
-  schedule:
-    # https://www.box3.cn/page/crontab.html
-    - cron: '0 */6 * * *'
+  # schedule:
+  #   # https://www.box3.cn/page/crontab.html
+  #   - cron: '0 */6 * * *'
   workflow_dispatch:
 
 jobs:
