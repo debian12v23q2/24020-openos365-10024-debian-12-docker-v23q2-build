@@ -1,0 +1,74 @@
+name: ci
+
+on:
+  push:
+    paths-ignore:
+      - 'README.md'
+      - 'ci/mychroot/etc/versions/**'
+      - 'ci/mychroot/etc/versions/openos365/**'
+      - 'ci/buildinfo/**'
+    branches:
+      - 'dev'
+      - 'test'
+      - 'prod'
+      - 'prod**'
+  schedule:
+    # https://www.box3.cn/page/crontab.html
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: ci
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          # this might remove tools that are actually needed,
+          # if set to "true" but frees about 6 GB
+          tool-cache: true
+          
+          # all of these default to true, but feel free to set to
+          # "false" if necessary for your workflow
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: true
+
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@master
+        with:
+          root-reserve-mb: 2048
+          swap-size-mb: 1024
+          remove-dotnet: 'true'
+          remove-docker-images: 'true'
+          remove-codeql: 'true'
+          remove-haskell: 'true'
+
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.OPENOS365_SSH }} 
+          known_hosts: 'gitlab.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFSMqzJeV9rUzU4kWitGjeR4PWSa29SPqJ1fVkhtj3Hw9xjLVXVYrU9QlYWrOLXBpQ6KWjbjTDTdDkoohFzgbEY='
+      - name: Check Out Repo 
+        uses: actions/checkout@v3
+      - name: Login to dockerhub
+        uses: docker/login-action@v2
+        with:
+          registry: docker.io
+          username: ${{ secrets.OPENOS365_DOCKERHUB_USER }}
+          password: ${{ secrets.OPENOS365_DOCKERHUB_PASSWORD }}
+      - name: Login to Aliyun Packages
+        uses: docker/login-action@v2
+        with:
+          registry: registry.cn-hangzhou.aliyuncs.com
+          username: ${{ secrets.OPENOS365_ALI_USER }}
+          password: ${{ secrets.OPENOS365_ALI_PASSWORD }}
+      - name: run 1.ci.caller.sh
+        run: |
+          ./1.ci.caller.sh
+

@@ -1,0 +1,8 @@
+{ 
+    "exec-opts": ["native.cgroupdriver=cgroupfs"], 
+    "cgroup-parent": "/actions_job",
+     "log-opts": {
+        "max-size": "1000m"
+    },
+    "data-root": "/home/runner/work/24019-openos365-10024-debian-12-docker-v23q1/24019-openos365-10024-debian-12-docker-v23q1/docker/"
+}

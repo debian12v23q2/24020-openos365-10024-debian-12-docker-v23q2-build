@@ -1,0 +1,3 @@
+*.tar
+chroot
+docker/
