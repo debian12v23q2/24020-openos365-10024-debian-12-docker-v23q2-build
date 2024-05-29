@@ -7,7 +7,7 @@ cd $CMD_PATH
 cd /opt/
 ls -al
 
-docker system prune -a -f
+sudo docker system prune -a -f
 apt list --installed
 sudo apt remove php* -y
 sudo apt remove ruby* -y
