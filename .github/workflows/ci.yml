@@ -8,7 +8,7 @@ on:
       - 'ci/mychroot/etc/versions/openos365/**'
       - 'ci/buildinfo/**'
     branches:
-      - 'dev'
+      # - 'dev'
       - 'test'
       - 'prod'
       - 'prod**'
