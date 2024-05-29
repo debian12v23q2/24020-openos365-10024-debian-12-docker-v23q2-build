@@ -68,3 +68,15 @@ du -h -d 1
 cd /
 sudo du -h -d 1
 sudo apt clean -y
+
+if command -v journalctl; then
+    sudo journalctl --rotate
+    sudo journalctl --vacuum-time=1s
+fi
+
+# delete all .gz and rotated file
+sudo find /var/log -type f -regex ".*\.gz$" -delete
+sudo find /var/log -type f -regex ".*\.[0-9]$" -delete
+
+# wipe log files
+sudo find /var/log/ -type f -exec cp /dev/null {} \;
