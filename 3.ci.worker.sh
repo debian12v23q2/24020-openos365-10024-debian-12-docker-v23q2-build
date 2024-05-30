@@ -27,8 +27,10 @@ if [ ! -z "${GITHUB_REPOSITORY}" ];then
     sudo systemctl daemon-reload
     sudo systemctl start docker
 
-    git config --global user.email "gnuhub@gmail.com"
-    git config --global user.name "gnuhub"
+    git config --global user.email  "gnuhub@gmail.com"
+    git config --global user.name   "gnuhub"
+    git config --global core.editor "vim"
+    git config --global pull.rebase false
 
     git remote -v
     git remote set-url origin git@github.com:${GITHUB_REPOSITORY}.git
