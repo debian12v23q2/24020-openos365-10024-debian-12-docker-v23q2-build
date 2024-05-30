@@ -24,9 +24,13 @@ jobs:
     steps:
       - name: Check Out Repo 
         uses: actions/checkout@v3
+
       - name: run 7.disk.clean.sh
         run: |
-          ./7.disk.clean.sh > ~/7.disk.clean.sh.big.log.txt 2>&1
+          echo "$(date)" | sudo tee /var/log/actions.log
+          sudo chmod 777 /var/log/actions.log
+          ./7.disk.clean.sh >> /var/log/actions.log 2>&1
+          
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
         with:
