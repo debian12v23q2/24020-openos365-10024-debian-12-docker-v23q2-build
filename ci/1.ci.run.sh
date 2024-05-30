@@ -10,7 +10,7 @@ pname=$(echo $down_name | cut -d '/' -f2)
 git clone git@github.com:${down_name}.git build
 cd build
 
-export GITHUB_REPOSITORY="openos365/24004-openos365-10024-debian12-docker-v23q3"
+export GITHUB_REPOSITORY="openos365/${pname}"
 
 df -h
 ./9.rsyslog.setup.sh 1
