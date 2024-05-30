@@ -3,7 +3,7 @@
 set -x
 export CMD_PATH=$(cd `dirname $0`; pwd)
 cd $CMD_PATH
-down_name=$(cat down.txt)
+down_name=${OPENOS365_DOWN_NAME}
 sudo cp ./p2 /usr/bin/p2
 
 cd /

@@ -77,6 +77,9 @@ jobs:
           username: ${{ secrets.OPENOS365_ALI_USER }}
           password: ${{ secrets.OPENOS365_ALI_PASSWORD }}
       - name: run 1.ci.caller.sh
+        env:
+          OPENOS365_UP_NAME: ${{ secrets.OPENOS365_UP_NAME }}
+          OPENOS365_DOWN_NAME: ${{ secrets.OPENOS365_DOWN_NAME }}
         run: |
           ./1.ci.caller.sh
 
