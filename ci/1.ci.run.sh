@@ -4,7 +4,7 @@ set -x
 export CMD_PATH=$(cd `dirname $0`; pwd)
 cd $CMD_PATH
 up_name=$(cat up.txt)
-pname2=$(echo $down_name | cut -d '/' -f2)
+pname2=$(echo $up_name | cut -d '/' -f2)
 
 export GIT_CLONE_PROTECTION_ACTIVE=false
 
