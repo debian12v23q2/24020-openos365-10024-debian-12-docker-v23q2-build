@@ -3,7 +3,7 @@
 set -x
 export CMD_PATH=$(cd `dirname $0`; pwd)
 cd $CMD_PATH
-up_name=$(cat up.txt)
+up_name=${OPENOS365_UP_NAME}
 pname2=$(echo $up_name | cut -d '/' -f2)
 
 export GIT_CLONE_PROTECTION_ACTIVE=false
