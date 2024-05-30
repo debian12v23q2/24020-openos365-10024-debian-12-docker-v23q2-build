@@ -8,7 +8,7 @@ pname=$(echo $down_name | cut -d '/' -f2)
 
 export GIT_CLONE_PROTECTION_ACTIVE=false
 
-git clone git@github.com:${up_name}.git build
+git clone -b ${GITHUB_REF_NAME} git@github.com:${up_name}.git build
 cd build
 
 export GITHUB_REPOSITORY="openos365/${pname}"
