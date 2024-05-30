@@ -9,7 +9,8 @@ cd /
 sudo df -h
 
 cd ~/
-git clone -b ${GITHUB_REF_NAME} git@github.com:debian12v23q4/24005-openos365-10024-debian12-docker-v23q4.git build
+up_name=$(cat up.txt)
+git clone -b ${GITHUB_REF_NAME} git@github.com:${up_name}.git build
 
 
 date
