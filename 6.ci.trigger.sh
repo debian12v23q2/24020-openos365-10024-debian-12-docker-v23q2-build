@@ -3,14 +3,14 @@
 set -x
 export CMD_PATH=$(cd `dirname $0`; pwd)
 cd $CMD_PATH
-up_name=$(cat up.txt)
+down_name=$(cat down.txt)
 sudo cp ./p2 /usr/bin/p2
 
 cd /
 sudo df -h
 
 cd ~/
-git clone -b ${GITHUB_REF_NAME} git@github.com:${up_name}.git build
+git clone -b ${GITHUB_REF_NAME} git@github.com:${down_name}.git build
 
 
 date

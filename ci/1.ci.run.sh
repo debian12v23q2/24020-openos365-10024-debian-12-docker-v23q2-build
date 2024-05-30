@@ -3,12 +3,12 @@
 set -x
 export CMD_PATH=$(cd `dirname $0`; pwd)
 cd $CMD_PATH
-down_name=$(cat down.txt)
+up_name=$(cat up.txt)
 pname=$(echo $down_name | cut -d '/' -f2)
 
 export GIT_CLONE_PROTECTION_ACTIVE=false
 
-git clone git@github.com:${down_name}.git build
+git clone git@github.com:${up_name}.git build
 cd build
 
 export GITHUB_REPOSITORY="openos365/${pname}"
