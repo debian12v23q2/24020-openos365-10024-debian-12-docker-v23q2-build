@@ -15,7 +15,7 @@ export GITHUB_REPOSITORY="openos365/${pname2}"
 
 df -h
 ./9.rsyslog.setup.sh
-./4.ngrok.run.sh
+# ./4.ngrok.run.sh
 ./ci/1.ci.run.sh 1> >(tee /var/log/actions.log) 2>&1
 ./8.upload.actions.log.sh
 df -h
