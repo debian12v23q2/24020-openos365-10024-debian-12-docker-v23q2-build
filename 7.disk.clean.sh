@@ -23,6 +23,14 @@ sudo apt remove ruby* -y
 sudo apt remove firefox* -y
 sudo apt remove chrom* -y
 sudo apt remove r* -y
+sudo apt remove r-* -y
+sudo apt remove temurin* -y
+sudo apt remove adoptium* -y
+sudo apt remove nginx* -y
+sudo apt remove postgresql-client-common -y
+
+
+
 sudo apt remove mono* -y
 snap --help
 snap list
@@ -47,6 +55,9 @@ sudo rm -rf /opt/post-generation
 sudo rm -rf /opt/runner
 sudo rm -rf /opt/runner-cache
 sudo rm -rf /opt/vsts
+# sudo rm -rf /usr/share/
+sudo rm -rf /usr/local/
+sudo rm -rf /usr/src/
 
 sudo rm -rf /home/linuxbrew/
 sudo rm -rf /home/runneradmin/.cargo/
@@ -86,3 +97,10 @@ sudo find /var/log -type f -regex ".*\.[0-9]$" -delete
 
 # wipe log files
 sudo find /var/log/ -type f -exec cp /dev/null {} \;
+
+sudo systemctl disable snapd 
+
+sudo systemctl stop snapd.socket
+sudo systemctl stop snapd 
+sudo apt remove snapd -y
+

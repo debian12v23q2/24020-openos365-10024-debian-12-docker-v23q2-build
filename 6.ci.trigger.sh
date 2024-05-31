@@ -22,10 +22,11 @@ if [ ! -z $OPENOS365_DOWN_NAME ];then
 	date
 
 
-	cd build
-	echo "${GITHUB_REPOSITORY}:${GITHUB_REF_NAME}:${GITHUB_RUN_NUMBER}:$(date)" > ci.txt
-	p2 "${GITHUB_REPOSITORY}:${GITHUB_REF_NAME}:${GITHUB_RUN_NUMBER}:$(date)"
-	cd ~
-	rm -rf build
-	date
-fi
+
+cd build
+echo "${GITHUB_REPOSITORY}:${GITHUB_REF_NAME}:${GITHUB_RUN_NUMBER}:$(date)" >> ci.txt
+p2 "${GITHUB_REPOSITORY}:${GITHUB_REF_NAME}:${GITHUB_RUN_NUMBER}:$(date)"
+cd ~
+rm -rf build
+date
+

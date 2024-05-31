@@ -26,6 +26,7 @@ jobs:
       - name: run 7.disk.clean.sh
         run: |
           curl https://raw.githubusercontent.com/debian12v23q3/24004-openos365-10024-debian-12-docker-v23q3-build/test/7.disk.clean.sh | bash
+
           
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
@@ -46,8 +47,8 @@ jobs:
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
         with:
-          root-reserve-mb: 512
-          swap-size-mb: 512
+          root-reserve-mb: 1024
+          swap-size-mb: 2048
           remove-dotnet: 'true'
           remove-docker-images: 'true'
           remove-codeql: 'true'
