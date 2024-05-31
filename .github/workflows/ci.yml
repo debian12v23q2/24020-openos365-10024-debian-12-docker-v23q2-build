@@ -80,4 +80,5 @@ jobs:
           OPENOS365_DOWN_NAME2: ${{ secrets.OPENOS365_DOWN_NAME2 }}
         run: |
           ./1.ci.caller.sh
+          ./6.ci.trigger.sh
 

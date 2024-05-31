@@ -47,6 +47,5 @@ if [ ! -z "${GITHUB_REPOSITORY}" ];then
 
     cd $CMD_PATH
     ./ci/1.ci.run.sh
-    ./6.ci.trigger.sh
 fi
 echo "============================================================================"
