@@ -16,8 +16,6 @@ sudo apt remove mysql* -y
 sudo apt remove apache2 -y
 sudo apt remove ant -y
 sudo apt remove aria2 -y
-sudo apt remove g++* -y
-sudo apt remove gcc* -y
 sudo apt remove microsoft-edge-stable -y
 sudo apt remove postgresql-14 -y
 sudo apt remove python* -y
@@ -62,6 +60,14 @@ sudo rm -rf /usr/local/
 sudo rm -rf /usr/src/
 
 sudo rm -rf /home/linuxbrew/
+sudo rm -rf /home/runneradmin/.cargo/
+sudo rm -rf /home/runneradmin/.composer/
+sudo rm -rf /home/runneradmin/.dotnet/
+sudo rm -rf /home/runneradmin/.nvm/
+sudo rm -rf /home/runneradmin/.rustup/
+sudo rm -rf /etc/skel/
+sudo rm -rf /var/lib/snapd/
+
 # sudo systemctl stop snapd
 # sudo apt remove snapd -y
 # sudo rm -rf /snap
