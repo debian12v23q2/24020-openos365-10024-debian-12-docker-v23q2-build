@@ -49,7 +49,7 @@ sudo rm -rf /opt/post-generation
 sudo rm -rf /opt/runner
 sudo rm -rf /opt/runner-cache
 sudo rm -rf /opt/vsts
-sudo rm -rf /usr/share/
+# sudo rm -rf /usr/share/
 sudo rm -rf /usr/local/
 sudo rm -rf /usr/src/
 
