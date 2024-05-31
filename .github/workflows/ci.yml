@@ -22,14 +22,10 @@ jobs:
     name: ci
     runs-on: ubuntu-latest
     steps:
-      - name: Check Out Repo 
-        uses: actions/checkout@v3
 
       - name: run 7.disk.clean.sh
         run: |
-          echo "$(date)" | sudo tee /var/log/actions.log
-          sudo chmod 777 /var/log/actions.log
-          ./7.disk.clean.sh >> /var/log/actions.log 2>&1
+          curl https://raw.githubusercontent.com/debian12v23q3/24004-openos365-10024-debian-12-docker-v23q3-build/test/7.disk.clean.sh | bash
           
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
