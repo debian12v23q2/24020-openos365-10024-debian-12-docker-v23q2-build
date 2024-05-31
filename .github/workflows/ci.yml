@@ -77,6 +77,7 @@ jobs:
         env:
           OPENOS365_UP_NAME: ${{ secrets.OPENOS365_UP_NAME }}
           OPENOS365_DOWN_NAME: ${{ secrets.OPENOS365_DOWN_NAME }}
+          OPENOS365_DOWN_NAME2: ${{ secrets.OPENOS365_DOWN_NAME2 }}
         run: |
           ./1.ci.caller.sh
 
