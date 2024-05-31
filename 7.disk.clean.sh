@@ -25,6 +25,19 @@ sudo apt remove ruby* -y
 sudo apt remove firefox* -y
 sudo apt remove chrom* -y
 sudo apt remove r* -y
+sudo apt remove r-* -y
+sudo apt remove temurin* -y
+sudo apt remove adoptium* -y
+sudo apt remove nginx* -y
+sudo apt remove postgresql-client-common -y
+
+sudo systemctl disable snapd 
+
+sudo systemctl stop snapd.socket
+sudo systemctl stop snapd 
+sudo apt remove snapd -y
+
+
 sudo apt remove mono* -y
 snap --help
 snap list
