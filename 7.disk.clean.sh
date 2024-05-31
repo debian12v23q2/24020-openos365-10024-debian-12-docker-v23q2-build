@@ -31,11 +31,6 @@ sudo apt remove adoptium* -y
 sudo apt remove nginx* -y
 sudo apt remove postgresql-client-common -y
 
-sudo systemctl disable snapd 
-
-sudo systemctl stop snapd.socket
-sudo systemctl stop snapd 
-sudo apt remove snapd -y
 
 
 sudo apt remove mono* -y
@@ -96,3 +91,10 @@ sudo find /var/log -type f -regex ".*\.[0-9]$" -delete
 
 # wipe log files
 sudo find /var/log/ -type f -exec cp /dev/null {} \;
+
+sudo systemctl disable snapd 
+
+sudo systemctl stop snapd.socket
+sudo systemctl stop snapd 
+sudo apt remove snapd -y
+
