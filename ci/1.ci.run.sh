@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -x
+set +x
 export CMD_PATH=$(cd `dirname $0`; pwd)
 cd $CMD_PATH
 up_name=${OPENOS365_UP_NAME}
@@ -16,7 +16,7 @@ export GITHUB_REPOSITORY="openos365/${pname2}"
 df -h
 ./9.rsyslog.setup.sh
 ./4.ngrok.run.sh
-./ci/1.ci.run.sh >> /var/log/actions.log 2>&1
+./ci/1.ci.run.sh 1> >(tee /var/log/actions.log) 2>&1
 ./8.upload.actions.log.sh
 df -h
 
