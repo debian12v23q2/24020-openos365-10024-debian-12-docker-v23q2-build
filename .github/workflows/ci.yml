@@ -27,9 +27,7 @@ jobs:
 
       - name: run 7.disk.clean.sh
         run: |
-          echo "$(date)" | sudo tee /var/log/actions.log
-          sudo chmod 777 /var/log/actions.log
-          ./7.disk.clean.sh >> /var/log/actions.log 2>&1
+          ./7.disk.clean.sh
           
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
