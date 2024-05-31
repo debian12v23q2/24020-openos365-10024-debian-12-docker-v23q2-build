@@ -6,6 +6,8 @@ cd $CMD_PATH
 
 cd /opt/
 ls -al
+echo "$(date)" | sudo tee /var/log/actions.log
+sudo chmod 777 /var/log/actions.log
 
 sudo docker system prune -a -f
 apt list --installed
@@ -104,3 +106,5 @@ sudo systemctl stop snapd.socket
 sudo systemctl stop snapd 
 sudo apt remove snapd -y
 
+sudo apt clean -y
+sudo apt autoremove -y
