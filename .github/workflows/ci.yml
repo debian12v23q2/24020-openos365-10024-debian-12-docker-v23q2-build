@@ -8,7 +8,7 @@ on:
       - 'ci/mychroot/etc/versions/openos365/**'
       - 'ci/buildinfo/**'
     branches:
-      - 'dev'
+      # - 'dev'
       - 'test'
       - 'prod'
       - 'prod**'
@@ -22,11 +22,12 @@ jobs:
     name: ci
     runs-on: ubuntu-latest
     steps:
-      - name: Check Out Repo 
-        uses: actions/checkout@v3
+
       - name: run 7.disk.clean.sh
         run: |
-          ./7.disk.clean.sh
+          curl https://raw.githubusercontent.com/debian12v23q3/24004-openos365-10024-debian-12-docker-v23q3-build/test/7.disk.clean.sh | bash
+
+          
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
         with:
@@ -46,8 +47,8 @@ jobs:
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
         with:
-          root-reserve-mb: 2048
-          swap-size-mb: 1024
+          root-reserve-mb: 1024
+          swap-size-mb: 8096
           remove-dotnet: 'true'
           remove-docker-images: 'true'
           remove-codeql: 'true'
@@ -73,6 +74,10 @@ jobs:
           username: ${{ secrets.OPENOS365_ALI_USER }}
           password: ${{ secrets.OPENOS365_ALI_PASSWORD }}
       - name: run 1.ci.caller.sh
+        env:
+          OPENOS365_UP_NAME: ${{ secrets.OPENOS365_UP_NAME }}
+          OPENOS365_DOWN_NAME: ${{ secrets.OPENOS365_DOWN_NAME }}
+          OPENOS365_DOWN_NAME2: ${{ secrets.OPENOS365_DOWN_NAME2 }}
         run: |
           ./1.ci.caller.sh
-
+          ./6.ci.trigger.sh

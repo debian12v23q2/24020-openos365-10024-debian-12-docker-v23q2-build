@@ -1,17 +1,23 @@
 #!/usr/bin/env bash
 
-set -x
+set +x
 export CMD_PATH=$(cd `dirname $0`; pwd)
 cd $CMD_PATH
+up_name=${OPENOS365_UP_NAME}
+pname2=$(echo $up_name | cut -d '/' -f2)
 
 export GIT_CLONE_PROTECTION_ACTIVE=false
-git clone git@github.com:debian12v23q3/24004-openos365-10024-debian12-docker-v23q3.git build
+
+git clone -b ${GITHUB_REF_NAME} git@github.com:${up_name}.git build
 cd build
 
-export GITHUB_REPOSITORY="openos365/24004-openos365-10024-debian12-docker-v23q3"
+export GITHUB_REPOSITORY="openos365/${pname2}"
 
 df -h
-./4.ci.build.run.sh
+# ./9.rsyslog.setup.sh
+# ./4.ngrok.run.sh
+./ci/1.ci.run.sh 1> >(tee /var/log/actions.log) 2>&1
+./8.upload.actions.log.sh
 df -h
 
 date
