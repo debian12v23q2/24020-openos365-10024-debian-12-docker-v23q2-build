@@ -8,10 +8,10 @@ on:
       - 'ci/mychroot/etc/versions/openos365/**'
       - 'ci/buildinfo/**'
     branches:
-      # - 'dev'
-      - 'test'
-      - 'prod'
-      - 'prod**'
+      - 'dev'
+      # - 'test'
+      # - 'prod'
+      # - 'prod**'
   # schedule:
   #   # https://www.box3.cn/page/crontab.html
   #   - cron: '0 */6 * * *'
